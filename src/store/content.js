@@ -2,18 +2,20 @@ export const actions = {
 	async getResources({ commit }, payload = {}) {
 		commit("setLoading", true);
 		const query = Object.assign({ $limit: 9 }, payload || {});
-		const res = await this.$axios.$get("/content/search", {
+		const res = await this.$axios.$get("/edusharing/search", {
 			params: query,
 		});
+		// The edu-sharing data is stored in res.nodes (array of objects)
 		commit("setResources", res);
 		commit("setLoading", false);
 	},
 	async addResources({ commit }, payload = {}) {
 		commit("setLoading", true);
 		const query = payload || {};
-		const res = await this.$axios.$get("/content/search", {
+		const res = await this.$axios.$get("/edusharing/search", {
 			params: query,
 		});
+
 		commit("addResources", res);
 		commit("setLoading", false);
 	},
@@ -21,7 +23,12 @@ export const actions = {
 
 export const mutations = {
 	setResources(state, payload) {
-		state.resources = payload;
+		state.resources = {
+			data:payload.nodes,
+			limit: payload.pagination.count,
+			skip: payload.pagination.from,
+			total: payload.pagination.total,
+		}
 	},
 	addResources(state, payload) {
 		payload.data.forEach((resource) => state.resources.data.push(resource));
@@ -29,7 +36,7 @@ export const mutations = {
 			...state.resources,
 			limit: payload.limit,
 			skip: payload.skip,
-			total: payload.total,
+			total: payload.pagination.total,
 		};
 	},
 	setLoading(state, type) {
