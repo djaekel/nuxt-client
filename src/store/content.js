@@ -29,7 +29,7 @@ export const mutations = {
 		};
 	},
 	addResources(state, payload) {
-		payload.data.forEach((resource) => state.resources.data.push(resource));
+		payload.nodes.forEach((resource) => state.resources.data.push(resource));
 		state.resources = {
 			...state.resources,
 			limit: payload.limit,
