@@ -63,11 +63,6 @@ export default {
 	props: {
 		id: { type: String, default: "" },
 		description: { type: [String, Array], default: "" },
-		licenses: { type: Array, default: () => [] },
-		mimeType: { type: String, default: "" },
-		originId: { type: String, default: "" },
-		providerName: { type: String, default: "" },
-		tags: { type: Array, default: () => [] },
 		thumbnail: { type: String, default: "" },
 		title: { type: String, default: "" },
 		url: { type: String, default: "" },

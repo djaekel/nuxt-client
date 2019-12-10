@@ -26,19 +26,13 @@
 				<base-grid column-width="15rem">
 					<content-card
 						v-for="resource of resources.data"
-						:id="resource._id"
-						:key="resource._id"
+						:id="resource.ref.id"
+						:key="resource.ref.id"
 						class="card"
-						:content-category="resource.resourceCategory"
 						:description="resource.description"
-						:licenses="resource.licenses"
-						:mime-type="resource.mimeType"
-						:origin-id="resource.originId"
-						:provider-name="resource.providerName"
-						:tags="resource.tags.slice(0, 5)"
-						:thumbnail="resource.thumbnail"
+						:thumbnail="resource.preview.url"
 						:title="resource.title"
-						:url="resource.url"
+						:url="resource.contentUrl"
 					/>
 				</base-grid>
 			</div>
