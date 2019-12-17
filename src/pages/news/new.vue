@@ -4,14 +4,14 @@
 			:inputs="[
 				{
 					to: { name: 'news' },
-					text: $t('pages.news.title'),
+					text: 'News',
 				},
 				{
 					text: $t('pages.news.new.title'),
 				},
 			]"
 		/>
-		<h1 :aria-label="$t('pages.news.new.title')"></h1>
+		<h1>{{ $t("pages.news.new.title") }} </h1>
 		<form-news #actions="{ cancel }" action="create">
 			<form-actions>
 				<template #primary>

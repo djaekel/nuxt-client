@@ -1,6 +1,6 @@
 <template>
 	<section>
-		<div v-if="scrollY > backToTopScrollYLimit" class="content__back-to-top">
+		<div v-if="scrollY > 115" class="content__back-to-top">
 			<floating-fab icon="add" @click="$_backToTop" />
 		</div>
 		<div class="content">
@@ -70,7 +70,6 @@ export default {
 	data() {
 		return {
 			searchQuery: "",
-			backToTopScrollYLimit: 115,
 		};
 	},
 	computed: {
