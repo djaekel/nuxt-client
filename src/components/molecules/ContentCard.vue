@@ -70,13 +70,13 @@ export default {
 	computed: {
 		reportMail() {
 			const mailContent = {
-				subject: this.$t("contentcard.report.subject"),
-				body: this.$t("contentcard.report.body"),
+				subject: this.$t("components.molecules.ContentCard.report.subject"),
+				body: this.$t("components.molecules.ContentCard.report.body"),
 			};
 			const querystring = Object.keys(mailContent)
 				.map((key) => key + "=" + encodeURIComponent(mailContent[key]))
 				.join("&");
-			const email = this.$t("contentcard.report.email");
+			const email = this.$t("components.molecules.ContentCard.report.email");
 			return `mailto:${email}?${querystring}`;
 		},
 	},
