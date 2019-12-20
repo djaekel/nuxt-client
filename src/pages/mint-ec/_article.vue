@@ -51,7 +51,7 @@ export default {
 	},
 	async asyncData({ store, params }) {
 		const page = await store.dispatch("ghost/getSinglePage", params.article);
-		return { page: page };
+		return page ? { page: page } : { page: {} };
 	},
 	data: function() {
 		return {
